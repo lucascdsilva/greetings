@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+
+  php:
+    build:
+      context: .
+      target: php_app
+    restart: unless-stopped
+    volumes:
+      - php_socket:/var/run/php
+      - app_data:/var/www
+  
+  nginx:
+    build:
+      context: .
+      target: nginx_app
+    ports:
+      - '80:80'
+
+volumes:
+  php_socket:
+  app_data:
