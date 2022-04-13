@@ -1,6 +1,6 @@
 # Proposal
 
-this repository is reserved for creating Rest API example for displaying greeting message.
+this repository is reserved for creating Rest API example for show greeting message.
 
 
 # Application Design
