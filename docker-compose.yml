@@ -8,6 +8,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./app:/var/www/app
+      - app_vendor:/var/www/app/vendor
   
   nginx:
     build:
@@ -15,10 +16,13 @@ services:
       target: nginx_app
     volumes:
       - ./app:/var/www/app
-      # - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - app_vendor:/var/www/app/vendor
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
     ports:
       - '80:80'
     depends_on:
       - php
+
+volumes:
+  app_vendor:
 
